@@ -1,9 +1,25 @@
 * {
     border: none;
-    margin: none;
-    padding: none;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+/* container */
+
+#container {
+    display: flex;
+    gap: 50px;
+}
+
+/* table */
 
 table {
     border: solid 1px black;
@@ -19,43 +35,72 @@ tr:nth-child(even) {
 }
 
 td {
-    padding: 10px;
     border: solid 1px black;
+    padding: 10px;
 }
+
+/* form */
 
 form {
     display: grid;
-    grid-template: repeat(3, 200px) / repeat(3, 200px);
-    margin-top: 20px;
+    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+    gap: 10px;
     background-color: lightblue;
-    width: 600px;
+    width: 750px;
+    border: solid black 1px;
+}
+
+form div {
+    padding: 10px;
 }
 
 #title {
-    grid-area: 1 / 1 / span 1 / span 3;
+    display: flex;
+    flex-direction: column;
+    grid-area: 1 / 1 / span 1 / span 1;
     align-self: center;
 }
 
 #author {
-    grid-area: 2 / 1 / span 1 / span 1;
+    display: flex;
+    flex-direction: column;
+    grid-area: 1 / 2 / span 1 / span 1;
     align-self: center;
 }
 
 #pages {
-    grid-area: 2 / 2 / span 1 / span 1;
+    display: flex;
+    flex-direction: column;
+    grid-area: 2 / 1 / span 1 / span 1;
     align-self: center;
 }
 
 #hasRead {
-    grid-area: 2 / 3 / span 1 / span 1;
+    display: flex;
+    flex-direction: column;
+    grid-area: 2 / 2 / span 1 / span 1;
     align-self: center;
 }
 
-#submit {
-    grid-area: 3 / 1 / span 1 / span 3;
+#submit{
+    display: flex;
+    flex-direction: column;
+    grid-area: 3 / 1 / span 1 / span 2;
     align-self: center;
+    justify-self: center;
 }
 
-#submit button {
-    width: 50px;
+#submit-btn {
+    background-color: grey;
+    border-radius: 5px;
+    padding: 10px 45px 10px 45px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+#title-input, #author-input,
+#pages-input, #hasRead-input {
+    margin-top: 5px;
+    padding: 10px 0px 10px 5px;
+    height: 20px;
 }

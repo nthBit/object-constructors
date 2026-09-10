@@ -9,12 +9,12 @@ function Book(title, author, pages, hasRead) {
         return this.title;
     }
     this.id = crypto.randomUUID()
-};
+}
 
 function createBook(title, author, pages, hasRead) {
     let newBook = new Book(title, author, pages, hasRead);
     myLibrary.push(newBook);
-};
+}
 
 createBook('Hyperion', 'Dan Simmons', '480', 'false');
 createBook('The Fall of Hyperion', 'Dan Simmons', '517', 'false');
@@ -34,7 +34,7 @@ function arrayLoop() {
     });
     table += "</table>"
     return table;
-};
+}
 
 const table = document.getElementById("table");
 table.innerHTML = arrayLoop();
