@@ -1,0 +1,24 @@
+* {
+    border: none;
+    margin: none;
+    padding: none;
+    box-sizing: border-box;
+}
+
+table {
+    border: solid 1px black;
+    padding: 10px;
+}
+
+tr {
+    background-color: lightblue;
+}
+
+tr:nth-child(even) {
+    background-color: grey;
+}
+
+td {
+    padding: 10px;
+    border: solid 1px black;
+}
