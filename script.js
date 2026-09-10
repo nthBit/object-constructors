@@ -36,5 +36,5 @@ function arrayLoop() {
     return table;
 };
 
-const body = document.querySelector("body");
-body.innerHTML = arrayLoop();
+const table = document.getElementById("table");
+table.innerHTML = arrayLoop();
