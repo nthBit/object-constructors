@@ -5,9 +5,6 @@ function Book(title, author, pages, hasRead) {
     this.author = author;
     this.pages = pages;
     this.hasRead = hasRead;
-    this.info = function() {
-        return this.title;
-    }
     this.id = crypto.randomUUID()
 }
 
@@ -38,3 +35,16 @@ function arrayLoop() {
 
 const table = document.getElementById("table");
 table.innerHTML = arrayLoop();
+
+const submitButton = document.getElementById("submitBook");
+const submit = document.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const title = document.getElementById("title-input").value;
+    const author = document.getElementById("author-input").value;
+    const pages = document.getElementById("pages-input").value;
+    const hasRead = document.getElementById("hasRead-input").value;
+    createBook(title, author, pages, hasRead);
+    const table = document.getElementById("table");
+    table.innerHTML = arrayLoop();
+});
+
