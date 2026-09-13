@@ -27,7 +27,8 @@ function arrayLoop() {
         table += `<td>${book.pages}</td>`;
         table += `<td>${book.hasRead}</td>`;
         table += `<td>${book.id}</td>`;
-        table += "</tr>"
+        table += `<td><button class="deleteButtons" id="delete-${book.id}"></button></td>`;
+        table += "</tr>";
     });
     table += "</table>"
     return table;
@@ -37,7 +38,7 @@ const table = document.getElementById("table");
 table.innerHTML = arrayLoop();
 
 const submitButton = document.getElementById("submitBook");
-const submit = document.addEventListener("submit", function(event) {
+submitButton.addEventListener("submit", function(event) {
     event.preventDefault();
     const title = document.getElementById("title-input").value;
     const author = document.getElementById("author-input").value;
@@ -46,5 +47,24 @@ const submit = document.addEventListener("submit", function(event) {
     createBook(title, author, pages, hasRead);
     const table = document.getElementById("table");
     table.innerHTML = arrayLoop();
+    deleteProcess();
 });
 
+function deleteProcess() {
+    const deleteButtons = Array.from(document.getElementsByClassName("deleteButtons"));
+    deleteButtons.forEach((button) => {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+            const targetID = event.target.id.replace("delete-", "");
+            myLibrary.forEach((book, index) => {
+                if (book.id === targetID) {
+                    myLibrary.splice(index, 1);
+                }
+            });
+            const table = document.getElementById("table");
+            table.innerHTML = arrayLoop();
+            deleteProcess();
+        });
+    });
+}
+deleteProcess();
