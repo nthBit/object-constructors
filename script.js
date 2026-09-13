@@ -5,7 +5,24 @@ function Book(title, author, pages, hasRead) {
     this.author = author;
     this.pages = pages;
     this.hasRead = hasRead;
-    this.id = crypto.randomUUID()
+    this.id = crypto.randomUUID();
+}
+
+// work on below function
+
+Book.prototype.bookRead = function() {
+    const hasReadBtns = Array.from(document.getElementsByClassName("hasReadBtn"));
+    hasReadBtns.forEach((button) => {
+        button.addEventListener("click", function(event){
+            event.preventDefault;
+            if (button.textContent === false) {
+                this.hasRead = true;
+            } else {
+                this.hasRead = false;
+            bookRead();
+        }
+        });
+    });
 }
 
 function createBook(title, author, pages, hasRead) {
@@ -25,7 +42,7 @@ function arrayLoop() {
         table += `<td>${book.title}</td>`;
         table += `<td>${book.author}</td>`;
         table += `<td>${book.pages}</td>`;
-        table += `<td>${book.hasRead}</td>`;
+        table += `<td><button class="hasReadBtn">${book.hasRead}</button></td>`;
         table += `<td>${book.id}</td>`;
         table += `<td><button class="deleteButtons" id="delete-${book.id}"></button></td>`;
         table += "</tr>";
